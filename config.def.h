@@ -5,9 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Monospace:pixelsize=16";
 static int bold_font = 0;
-static int borderpx = 2;
+static int borderpx = 0;
 #define histsize 2000
 
 /*
@@ -51,7 +51,7 @@ static unsigned int actionfps = 30;
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
  */
-static unsigned int blinktimeout = 800;
+static unsigned int blinktimeout = 0;
 
 /*
  * thickness of underline and bar cursors
@@ -65,7 +65,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-static char *termname = "st-256color";
+static char *termname = "xterm-256color";
 
 /*
  * spaces per tab
@@ -82,39 +82,36 @@ static char *termname = "st-256color";
  *
  *	stty tabs
  */
-static unsigned int tabspaces = 8;
+static unsigned int tabspaces = 4;
 
 /* bg opacity */
-static int alpha = 0xdd;
+static int alpha = 0xff;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
-
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	/* 00 */ "#073642",
+	/* 01 */ "#dc322f",
+	/* 02 */ "#859900",
+	/* 03 */ "#b58900",
+	/* 04 */ "#268bd2",
+	/* 05 */ "#d33682",
+	/* 06 */ "#2aa198",
+	/* 07 */ "#eee8d5",
+	/* 08 */ "#002b36",
+	/* 09 */ "#cb4b16",
+	/* 10 */ "#586e75",
+	/* 11 */ "#657b83",
+	/* 12 */ "#839496",
+	/* 13 */ "#6c71c4",
+	/* 14 */ "#93a1a1",
+	/* 15 */ "#fdf6e3",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"black",
+	"#002b36",
+	"#839496",
+	"#93a1a1"
 };
 
 
@@ -157,14 +154,15 @@ static unsigned int defaultunderline = 7;
  */
 static MouseShortcut mshortcuts[] = {
 	/* button               mask            string */
-	{ Button4,              XK_NO_MOD,      "\031" },
-	{ Button5,              XK_NO_MOD,      "\005" },
+	//{ Button4,              XK_NO_MOD,      "\031" },
+	//{ Button5,              XK_NO_MOD,      "\005" },
+	{ 0,					0,				"" }
 };
 
 static MouseKey mkeys[] = {
 	/* button               mask            function        argument */
-	{ Button4,              ShiftMask,      kscrollup,      {.i =  1} },
-	{ Button5,              ShiftMask,      kscrolldown,    {.i =  1} },
+	{ Button4,              XK_NO_MOD,      kscrollup,      {.i =  1} },
+	{ Button5,              XK_NO_MOD,      kscrolldown,    {.i =  1} },
 };
 
 /* Internal keyboard shortcuts. */
@@ -184,8 +182,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_V,           clippaste,      {.i =  0} },
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ XK_NO_MOD,			XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ XK_NO_MOD,			XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
