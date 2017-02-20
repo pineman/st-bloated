@@ -169,21 +169,21 @@ static MouseKey mkeys[] = {
 #define MODKEY Mod1Mask
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_Prior,       xzoom,          {.f = +1} },
-	{ MODKEY|ShiftMask,     XK_Next,        xzoom,          {.f = -1} },
-	{ MODKEY|ShiftMask,     XK_Home,        xzoomreset,     {.f =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_Insert,      clippaste,      {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_V,           clippaste,      {.i =  0} },
-	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-	{ XK_NO_MOD,			XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ XK_NO_MOD,			XK_Page_Down,   kscrolldown,    {.i = -1} },
+	/* mask						keysym          function        argument */
+	{ XK_ANY_MOD,           	XK_Break,       sendbreak,      {.i =  0} },
+	{ ControlMask,          	XK_Print,       toggleprinter,  {.i =  0} },
+	{ ShiftMask,            	XK_Print,       printscreen,    {.i =  0} },
+	{ XK_ANY_MOD,           	XK_Print,       printsel,       {.i =  0} },
+	{ MODKEY|ShiftMask,     	XK_Prior,       xzoom,          {.f = +1} },
+	{ MODKEY|ShiftMask,     	XK_Next,        xzoom,          {.f = -1} },
+	{ MODKEY|ShiftMask,     	XK_Home,        xzoomreset,     {.f =  0} },
+	{ ShiftMask,            	XK_Insert,      selpaste,       {.i =  0} },
+	{ MODKEY|ShiftMask,     	XK_Insert,      clippaste,      {.i =  0} },
+	{ ControlMask|ShiftMask,	XK_C,           clipcopy,       {.i =  0} },
+	{ ControlMask|ShiftMask,	XK_V,           clippaste,      {.i =  0} },
+	{ MODKEY,               	XK_Num_Lock,    numlock,        {.i =  0} },
+	{ XK_NO_MOD,				XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ XK_NO_MOD,				XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
